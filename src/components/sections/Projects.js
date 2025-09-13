@@ -249,7 +249,7 @@ function ProjectCard({ project, index, isHovered, onHover, onLeave }) {
               rel="noopener noreferrer"
               className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 text-center"
             >
-              Live Demo
+              🌐 Explore App
             </a>
           )}
 
