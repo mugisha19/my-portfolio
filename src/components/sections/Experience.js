@@ -22,7 +22,7 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section className="py-20 px-6 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <section id="experiences" className="py-20 px-6 bg-slate-800 text-white">
       <h2 className="text-4xl font-bold mb-10 text-center">Experience</h2>
       <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {experiences.map((exp) => (
@@ -32,11 +32,11 @@ export default function Experience() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow"
+            className="bg-slate-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow"
           >
             <h3 className="text-xl font-semibold">{exp.role}</h3>
-            <p className="text-gray-500 dark:text-gray-400">{exp.company}</p>
-            <span className="text-sm text-gray-400">{exp.period}</span>
+            <p className="text-slate-400">{exp.company}</p>
+            <span className="text-sm text-slate-500">{exp.period}</span>
             <p className="mt-3">{exp.details}</p>
           </motion.div>
         ))}

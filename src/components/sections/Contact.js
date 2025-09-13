@@ -115,14 +115,14 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 px-6 bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 relative overflow-hidden"
+      className="py-24 px-6 bg-slate-950 text-white relative overflow-hidden"
     >
       {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05]">
+      <div className="absolute inset-0 opacity-[0.05]">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}
         ></div>
       </div>
@@ -143,16 +143,16 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <span className="inline-flex items-center px-4 py-2 bg-neutral-800 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-800 text-sm font-medium rounded-full">
+            <span className="inline-flex items-center px-4 py-2 bg-slate-800/50 text-blue-300 text-sm font-medium rounded-full border border-slate-700/50">
               Get In Touch
             </span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-900 dark:text-neutral-100">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             Let's Work Together
           </h2>
 
-          <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
             I'm always interested in new opportunities and collaborations.
             Whether you have a project in mind or just want to chat, I'd love to
             hear from you.
@@ -168,8 +168,8 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-sm border border-neutral-200 dark:border-neutral-700">
-              <h3 className="text-2xl font-semibold mb-6 text-neutral-900 dark:text-neutral-100">
+            <div className="bg-slate-800/40 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/30">
+              <h3 className="text-2xl font-semibold mb-6 text-white">
                 Send a Message
               </h3>
 
@@ -184,10 +184,10 @@ export default function Contact() {
                       onFocus={() => setActiveField("name")}
                       onBlur={() => setActiveField("")}
                       required
-                      className={`w-full px-4 py-3 bg-neutral-50 dark:bg-neutral-700 border rounded-lg text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 dark:placeholder-neutral-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-100 ${
+                      className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-slate-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                         activeField === "name"
-                          ? "border-neutral-900 dark:border-neutral-100"
-                          : "border-neutral-300 dark:border-neutral-600"
+                          ? "border-blue-500"
+                          : "border-slate-600"
                       }`}
                       placeholder="Full Name"
                     />
@@ -202,10 +202,10 @@ export default function Contact() {
                       onFocus={() => setActiveField("email")}
                       onBlur={() => setActiveField("")}
                       required
-                      className={`w-full px-4 py-3 bg-neutral-50 dark:bg-neutral-700 border rounded-lg text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 dark:placeholder-neutral-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-100 ${
+                      className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-slate-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                         activeField === "email"
-                          ? "border-neutral-900 dark:border-neutral-100"
-                          : "border-neutral-300 dark:border-neutral-600"
+                          ? "border-blue-500"
+                          : "border-slate-600"
                       }`}
                       placeholder="Email Address"
                     />
@@ -221,10 +221,10 @@ export default function Contact() {
                     onFocus={() => setActiveField("subject")}
                     onBlur={() => setActiveField("")}
                     required
-                    className={`w-full px-4 py-3 bg-neutral-50 dark:bg-neutral-700 border rounded-lg text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 dark:placeholder-neutral-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-100 ${
+                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-slate-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                       activeField === "subject"
-                        ? "border-neutral-900 dark:border-neutral-100"
-                        : "border-neutral-300 dark:border-neutral-600"
+                        ? "border-blue-500"
+                        : "border-slate-600"
                     }`}
                     placeholder="Subject"
                   />
@@ -239,10 +239,10 @@ export default function Contact() {
                     onBlur={() => setActiveField("")}
                     rows={6}
                     required
-                    className={`w-full px-4 py-3 bg-neutral-50 dark:bg-neutral-700 border rounded-lg text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 dark:placeholder-neutral-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-100 resize-none ${
+                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-slate-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none ${
                       activeField === "message"
-                        ? "border-neutral-900 dark:border-neutral-100"
-                        : "border-neutral-300 dark:border-neutral-600"
+                        ? "border-blue-500"
+                        : "border-slate-600"
                     }`}
                     placeholder="Tell me about your project..."
                   />
@@ -251,7 +251,7 @@ export default function Contact() {
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 px-6 bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 font-medium rounded-lg transition-all duration-300 hover:bg-neutral-800 dark:hover:bg-neutral-200 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
+                  className="w-full py-3 px-6 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -264,7 +264,7 @@ export default function Contact() {
                   </span>
                   {isSubmitting && (
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-5 h-5 border-2 border-neutral-100 dark:border-neutral-900 border-t-transparent rounded-full animate-spin"></div>
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                     </div>
                   )}
                 </motion.button>
@@ -282,10 +282,10 @@ export default function Contact() {
           >
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-semibold mb-4 text-neutral-900 dark:text-neutral-100">
+                <h3 className="text-2xl font-semibold mb-4 text-white">
                   Get in Touch
                 </h3>
-                <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                <p className="text-slate-400 leading-relaxed">
                   I typically respond within 24 hours. Looking forward to
                   discussing your next project!
                 </p>
@@ -304,36 +304,36 @@ export default function Contact() {
                     {method.link ? (
                       <a
                         href={method.link}
-                        className="flex items-start gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-white dark:hover:bg-neutral-800 hover:shadow-sm border border-transparent hover:border-neutral-200 dark:hover:border-neutral-700"
+                        className="flex items-start gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-slate-800/50 border border-transparent hover:border-slate-700/50"
                       >
-                        <div className="flex-shrink-0 w-12 h-12 bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                           {method.icon}
                         </div>
                         <div>
-                          <h4 className="font-medium text-neutral-900 dark:text-neutral-100 mb-1">
+                          <h4 className="font-medium text-white mb-1">
                             {method.label}
                           </h4>
-                          <p className="text-neutral-600 dark:text-neutral-400 font-mono text-sm mb-1">
+                          <p className="text-slate-400 font-mono text-sm mb-1">
                             {method.value}
                           </p>
-                          <p className="text-neutral-500 dark:text-neutral-500 text-sm">
+                          <p className="text-slate-500 text-sm">
                             {method.description}
                           </p>
                         </div>
                       </a>
                     ) : (
                       <div className="flex items-start gap-4 p-4">
-                        <div className="flex-shrink-0 w-12 h-12 bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 rounded-lg flex items-center justify-center">
+                        <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center">
                           {method.icon}
                         </div>
                         <div>
-                          <h4 className="font-medium text-neutral-900 dark:text-neutral-100 mb-1">
+                          <h4 className="font-medium text-white mb-1">
                             {method.label}
                           </h4>
-                          <p className="text-neutral-600 dark:text-neutral-400 font-mono text-sm mb-1">
+                          <p className="text-slate-400 font-mono text-sm mb-1">
                             {method.value}
                           </p>
-                          <p className="text-neutral-500 dark:text-neutral-500 text-sm">
+                          <p className="text-slate-500 text-sm">
                             {method.description}
                           </p>
                         </div>
@@ -344,16 +344,14 @@ export default function Contact() {
               </div>
 
               {/* Social Links */}
-              <div className="pt-8 border-t border-neutral-200 dark:border-neutral-700">
-                <h4 className="font-medium text-neutral-900 dark:text-neutral-100 mb-4">
-                  Follow me
-                </h4>
+              <div className="pt-8 border-t border-slate-700">
+                <h4 className="font-medium text-white mb-4">Follow me</h4>
                 <div className="flex gap-4">
                   {["GitHub", "Twitter"].map((platform, index) => (
                     <motion.a
                       key={platform}
                       href="#"
-                      className="w-10 h-10 bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 rounded-lg flex items-center justify-center hover:bg-neutral-900 dark:hover:bg-neutral-100 hover:text-neutral-100 dark:hover:text-neutral-900 transition-all duration-300"
+                      className="w-10 h-10 bg-slate-700 text-slate-300 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                       initial={{ opacity: 0, scale: 0.8 }}
@@ -374,22 +372,22 @@ export default function Contact() {
 
         {/* Bottom CTA */}
         <motion.div
-          className="text-center mt-20 pt-12 border-t border-neutral-200 dark:border-neutral-700"
+          className="text-center mt-20 pt-12 border-t border-slate-700"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-semibold mb-4 text-neutral-900 dark:text-neutral-100">
+          <h3 className="text-2xl font-semibold mb-4 text-white">
             Ready to start your project?
           </h3>
-          <p className="text-neutral-600 dark:text-neutral-400 mb-6 max-w-xl mx-auto">
+          <p className="text-slate-400 mb-6 max-w-xl mx-auto">
             Let's chat about the way we can use reliable programming and a
             clean, modern appearance to bring out your thoughts.
           </p>
           <motion.a
             href="mailto:habiyaadolphe19@gmail.com"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 font-medium rounded-lg hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
