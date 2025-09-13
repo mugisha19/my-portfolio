@@ -1,11 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ProfileImage from "../../assets/profile.jpg";
-import useTheme from "../../hooks/useTheme";
 
 export default function Hero() {
-  const [theme] = useTheme();
-
   return (
     <section
       id="hero"
