@@ -115,14 +115,19 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 px-6 bg-slate-950 text-white relative overflow-hidden"
+      className="py-24 px-6 bg-gray-200 dark:bg-slate-950 text-gray-900 dark:text-white relative overflow-hidden"
     >
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.05]">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23${
+              window.matchMedia &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "ffffff"
+                : "000000"
+            }' fill-opacity='1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}
         ></div>
       </div>
@@ -143,16 +148,16 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <span className="inline-flex items-center px-4 py-2 bg-slate-800/50 text-blue-300 text-sm font-medium rounded-full border border-slate-700/50">
+            <span className="inline-flex items-center px-4 py-2 bg-white/80 dark:bg-slate-800/50 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full border border-gray-200/50 dark:border-slate-700/50">
               Get In Touch
             </span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
             Let's Work Together
           </h2>
 
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-gray-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
             I'm always interested in new opportunities and collaborations.
             Whether you have a project in mind or just want to chat, I'd love to
             hear from you.
@@ -168,8 +173,8 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="bg-slate-800/40 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/30">
-              <h3 className="text-2xl font-semibold mb-6 text-white">
+            <div className="bg-white/80 dark:bg-slate-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 dark:border-slate-700/30">
+              <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">
                 Send a Message
               </h3>
 
@@ -184,10 +189,10 @@ export default function Contact() {
                       onFocus={() => setActiveField("name")}
                       onBlur={() => setActiveField("")}
                       required
-                      className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-slate-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                      className={`w-full px-4 py-3 bg-gray-100 dark:bg-slate-700/50 border rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-slate-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                         activeField === "name"
                           ? "border-blue-500"
-                          : "border-slate-600"
+                          : "border-gray-300 dark:border-slate-600"
                       }`}
                       placeholder="Full Name"
                     />
@@ -202,10 +207,10 @@ export default function Contact() {
                       onFocus={() => setActiveField("email")}
                       onBlur={() => setActiveField("")}
                       required
-                      className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-slate-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                      className={`w-full px-4 py-3 bg-gray-100 dark:bg-slate-700/50 border rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-slate-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                         activeField === "email"
                           ? "border-blue-500"
-                          : "border-slate-600"
+                          : "border-gray-300 dark:border-slate-600"
                       }`}
                       placeholder="Email Address"
                     />
@@ -221,10 +226,10 @@ export default function Contact() {
                     onFocus={() => setActiveField("subject")}
                     onBlur={() => setActiveField("")}
                     required
-                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-slate-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                    className={`w-full px-4 py-3 bg-gray-100 dark:bg-slate-700/50 border rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-slate-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                       activeField === "subject"
                         ? "border-blue-500"
-                        : "border-slate-600"
+                        : "border-gray-300 dark:border-slate-600"
                     }`}
                     placeholder="Subject"
                   />
@@ -239,10 +244,10 @@ export default function Contact() {
                     onBlur={() => setActiveField("")}
                     rows={6}
                     required
-                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-slate-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none ${
+                    className={`w-full px-4 py-3 bg-gray-100 dark:bg-slate-700/50 border rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-slate-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none ${
                       activeField === "message"
                         ? "border-blue-500"
-                        : "border-slate-600"
+                        : "border-gray-300 dark:border-slate-600"
                     }`}
                     placeholder="Tell me about your project..."
                   />
@@ -282,10 +287,10 @@ export default function Contact() {
           >
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-semibold mb-4 text-white">
+                <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">
                   Get in Touch
                 </h3>
-                <p className="text-slate-400 leading-relaxed">
+                <p className="text-gray-600 dark:text-slate-400 leading-relaxed">
                   I typically respond within 24 hours. Looking forward to
                   discussing your next project!
                 </p>
@@ -304,19 +309,19 @@ export default function Contact() {
                     {method.link ? (
                       <a
                         href={method.link}
-                        className="flex items-start gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-slate-800/50 border border-transparent hover:border-slate-700/50"
+                        className="flex items-start gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-gray-100 dark:hover:bg-slate-800/50 border border-transparent hover:border-gray-200 dark:hover:border-slate-700/50"
                       >
                         <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                           {method.icon}
                         </div>
                         <div>
-                          <h4 className="font-medium text-white mb-1">
+                          <h4 className="font-medium text-gray-900 dark:text-white mb-1">
                             {method.label}
                           </h4>
-                          <p className="text-slate-400 font-mono text-sm mb-1">
+                          <p className="text-gray-600 dark:text-slate-400 font-mono text-sm mb-1">
                             {method.value}
                           </p>
-                          <p className="text-slate-500 text-sm">
+                          <p className="text-gray-500 dark:text-slate-500 text-sm">
                             {method.description}
                           </p>
                         </div>
@@ -327,13 +332,13 @@ export default function Contact() {
                           {method.icon}
                         </div>
                         <div>
-                          <h4 className="font-medium text-white mb-1">
+                          <h4 className="font-medium text-gray-900 dark:text-white mb-1">
                             {method.label}
                           </h4>
-                          <p className="text-slate-400 font-mono text-sm mb-1">
+                          <p className="text-gray-600 dark:text-slate-400 font-mono text-sm mb-1">
                             {method.value}
                           </p>
-                          <p className="text-slate-500 text-sm">
+                          <p className="text-gray-500 dark:text-slate-500 text-sm">
                             {method.description}
                           </p>
                         </div>
@@ -344,14 +349,16 @@ export default function Contact() {
               </div>
 
               {/* Social Links */}
-              <div className="pt-8 border-t border-slate-700">
-                <h4 className="font-medium text-white mb-4">Follow me</h4>
+              <div className="pt-8 border-t border-gray-300 dark:border-slate-700">
+                <h4 className="font-medium text-gray-900 dark:text-white mb-4">
+                  Follow me
+                </h4>
                 <div className="flex gap-4">
                   {["GitHub", "Twitter"].map((platform, index) => (
                     <motion.a
                       key={platform}
                       href="#"
-                      className="w-10 h-10 bg-slate-700 text-slate-300 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300"
+                      className="w-10 h-10 bg-gray-300 dark:bg-slate-700 text-gray-700 dark:text-slate-300 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                       initial={{ opacity: 0, scale: 0.8 }}
@@ -372,16 +379,16 @@ export default function Contact() {
 
         {/* Bottom CTA */}
         <motion.div
-          className="text-center mt-20 pt-12 border-t border-slate-700"
+          className="text-center mt-20 pt-12 border-t border-gray-300 dark:border-slate-700"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-semibold mb-4 text-white">
+          <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">
             Ready to start your project?
           </h3>
-          <p className="text-slate-400 mb-6 max-w-xl mx-auto">
+          <p className="text-gray-600 dark:text-slate-400 mb-6 max-w-xl mx-auto">
             Let's chat about the way we can use reliable programming and a
             clean, modern appearance to bring out your thoughts.
           </p>

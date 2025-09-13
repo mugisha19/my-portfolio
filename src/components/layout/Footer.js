@@ -65,13 +65,17 @@ function Footer() {
   ];
 
   return (
-    <footer className="bg-slate-950 text-white relative overflow-hidden">
+    <footer className="bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='m0 40l40-40h-40z'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23${
+              document.documentElement.classList.contains("dark")
+                ? "ffffff"
+                : "000000"
+            }' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='m0 40l40-40h-40z'/%3E%3C/g%3E%3C/svg%3E")`,
           }}
         ></div>
       </div>
@@ -83,10 +87,10 @@ function Footer() {
             {/* Brand & About */}
             <div className="lg:col-span-1">
               <div className="mb-6">
-                <h3 className="text-2xl font-bold text-white mb-3">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
                   HABIYAREMYE Adolphe
                 </h3>
-                <p className="text-slate-400 leading-relaxed text-sm">
+                <p className="text-gray-600 dark:text-slate-400 leading-relaxed text-sm">
                   Full-stack developer passionate about creating exceptional
                   digital experiences. Specialized in modern web technologies
                   and user-centered design.
@@ -101,7 +105,7 @@ function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 bg-slate-800 hover:bg-blue-600 text-slate-400 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+                    className="w-9 h-9 bg-gray-200 dark:bg-slate-800 hover:bg-blue-600 dark:hover:bg-blue-600 text-gray-600 dark:text-slate-400 hover:text-white dark:hover:text-white rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
                     aria-label={social.name}
                   >
                     {social.icon}
@@ -112,13 +116,15 @@ function Footer() {
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+              <h4 className="text-gray-900 dark:text-white font-semibold mb-4">
+                Quick Links
+              </h4>
               <nav className="space-y-2">
                 {quickLinks.map((link) => (
                   <a
                     key={link.name}
                     href={link.href}
-                    className="block text-slate-400 hover:text-white text-sm transition-colors duration-300 hover:translate-x-1 transform"
+                    className="block text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white text-sm transition-colors duration-300 hover:translate-x-1 transform"
                   >
                     {link.name}
                   </a>
@@ -128,14 +134,16 @@ function Footer() {
 
             {/* Services */}
             <div>
-              <h4 className="text-white font-semibold mb-4">Services</h4>
+              <h4 className="text-gray-900 dark:text-white font-semibold mb-4">
+                Services
+              </h4>
               <div className="space-y-2">
                 {services.map((service) => (
                   <div
                     key={service}
-                    className="text-slate-400 text-sm flex items-center gap-2"
+                    className="text-gray-600 dark:text-slate-400 text-sm flex items-center gap-2"
                   >
-                    <div className="w-1 h-1 bg-slate-600 rounded-full"></div>
+                    <div className="w-1 h-1 bg-gray-500 dark:bg-slate-600 rounded-full"></div>
                     {service}
                   </div>
                 ))}
@@ -144,8 +152,10 @@ function Footer() {
 
             {/* Newsletter */}
             <div>
-              <h4 className="text-white font-semibold mb-4">Stay Updated</h4>
-              <p className="text-slate-400 text-sm mb-4">
+              <h4 className="text-gray-900 dark:text-white font-semibold mb-4">
+                Stay Updated
+              </h4>
+              <p className="text-gray-600 dark:text-slate-400 text-sm mb-4">
                 Get notified about new projects and blog posts.
               </p>
 
@@ -156,23 +166,23 @@ function Footer() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
-                    className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm transition-all duration-300"
+                    className="w-full px-4 py-2 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-slate-500 focus:outline-none focus:border-blue-500 dark:focus:border-blue-500 focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-500 text-sm transition-all duration-300"
                     required
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={isSubscribed}
-                  className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubscribed ? "Subscribed!" : "Subscribe"}
                 </button>
               </form>
 
               {/* Contact Info */}
-              <div className="mt-6 pt-6 border-t border-slate-800">
+              <div className="mt-6 pt-6 border-t border-gray-300 dark:border-slate-800">
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-slate-400 text-sm">
+                  <div className="flex items-center gap-2 text-gray-600 dark:text-slate-400 text-sm">
                     <svg
                       className="w-4 h-4"
                       fill="none"
@@ -188,7 +198,7 @@ function Footer() {
                     </svg>
                     habiyaadolphe19@gmail.com
                   </div>
-                  <div className="flex items-center gap-2 text-slate-400 text-sm">
+                  <div className="flex items-center gap-2 text-gray-600 dark:text-slate-400 text-sm">
                     <svg
                       className="w-4 h-4"
                       fill="none"
@@ -208,7 +218,7 @@ function Footer() {
                         d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                       />
                     </svg>
-                    Kigali, Rwa
+                    Kigali, Rwanda
                   </div>
                 </div>
               </div>
@@ -217,11 +227,11 @@ function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-slate-800">
+        <div className="border-t border-gray-300 dark:border-slate-800">
           <div className="max-w-6xl mx-auto px-6 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               {/* Copyright */}
-              <div className="text-slate-500 text-sm">
+              <div className="text-gray-600 dark:text-slate-500 text-sm">
                 © {currentYear} HABIYAREMYE Adolphe. All rights reserved.
               </div>
 
@@ -230,10 +240,10 @@ function Footer() {
                 {/* Availability Status */}
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-slate-400">Available for work</span>
+                  <span className="text-gray-600 dark:text-slate-400">
+                    Available for work
+                  </span>
                 </div>
-
-                {/* Legal Links */}
               </div>
             </div>
           </div>
@@ -242,7 +252,7 @@ function Footer() {
         {/* Back to Top Button */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="absolute bottom-6 right-6 w-12 h-12 bg-slate-800 hover:bg-blue-600 text-slate-400 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+          className="absolute bottom-6 right-6 w-12 h-12 bg-gray-200 dark:bg-slate-800 hover:bg-blue-600 dark:hover:bg-blue-600 text-gray-600 dark:text-slate-400 hover:text-white dark:hover:text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group"
           aria-label="Back to top"
         >
           <svg

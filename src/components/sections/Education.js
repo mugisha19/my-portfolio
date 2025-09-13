@@ -24,7 +24,8 @@ const Education = () => {
       ],
       logo: "🎓",
       color: "from-blue-500 to-cyan-500",
-      bgColor: "from-slate-800/40 to-slate-700/40",
+      bgColor:
+        "from-gray-100/80 to-gray-50/80 dark:from-slate-800/40 dark:to-slate-700/40",
     },
   ];
 
@@ -45,12 +46,12 @@ const Education = () => {
   return (
     <section
       id="education"
-      className="py-20 px-6 bg-slate-900 text-white relative overflow-hidden"
+      className="py-20 px-6 bg-white dark:bg-slate-900 text-gray-900 dark:text-white relative overflow-hidden"
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-slate-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-gray-400/10 dark:bg-slate-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
@@ -61,16 +62,17 @@ const Education = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="inline-flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-blue-300 mb-6 border border-slate-700/50">
+          <div className="inline-flex items-center gap-2 bg-white/80 dark:bg-slate-800/50 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-blue-700 dark:text-blue-300 mb-6 border border-gray-200/50 dark:border-slate-700/50">
             <span className="animate-bounce">📚</span>
             <span>Academic Journey</span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-            Education & <span className="text-blue-400">Learning</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+            Education &{" "}
+            <span className="text-blue-600 dark:text-blue-400">Learning</span>
           </h2>
 
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-gray-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
             My academic background and continuous learning journey in technology
             and innovation
           </p>
@@ -86,8 +88,8 @@ const Education = () => {
                 onClick={() => setActiveCard(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   activeCard === index
-                    ? "bg-gradient-to-r from-blue-500 to-blue-400 scale-125 shadow-lg"
-                    : "bg-slate-600 hover:bg-slate-500"
+                    ? "bg-gradient-to-r from-blue-600 to-blue-500 dark:from-blue-500 dark:to-blue-400 scale-125 shadow-lg"
+                    : "bg-gray-400 dark:bg-slate-600 hover:bg-gray-500 dark:hover:bg-slate-500"
                 }`}
               />
             ))}
@@ -120,10 +122,10 @@ const Education = () => {
           {/* Navigation Arrows */}
           <button
             onClick={prevCard}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-slate-800/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group border border-slate-700/50"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group border border-gray-200/50 dark:border-slate-700/50"
           >
             <svg
-              className="w-6 h-6 text-slate-300 group-hover:text-blue-400"
+              className="w-6 h-6 text-gray-600 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -139,10 +141,10 @@ const Education = () => {
 
           <button
             onClick={nextCard}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-slate-800/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group border border-slate-700/50"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group border border-gray-200/50 dark:border-slate-700/50"
           >
             <svg
-              className="w-6 h-6 text-slate-300 group-hover:text-blue-400"
+              className="w-6 h-6 text-gray-600 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -176,7 +178,7 @@ const EducationCard = ({ education, isActive }) => {
       className={`
       bg-gradient-to-br ${
         education.bgColor
-      } backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-slate-700/30
+      } backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-gray-200/30 dark:border-slate-700/30
       transition-all duration-500 hover:shadow-3xl
       ${isActive ? "animate-fadeIn" : ""}
     `}
@@ -192,20 +194,24 @@ const EducationCard = ({ education, isActive }) => {
               <span className="filter drop-shadow-sm">{education.logo}</span>
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-white mb-1">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
                 {education.institution}
               </h3>
-              <p className="text-slate-400 font-medium">{education.duration}</p>
+              <p className="text-gray-600 dark:text-slate-400 font-medium">
+                {education.duration}
+              </p>
             </div>
           </div>
 
           {/* Degree & Grade */}
           <div className="space-y-3">
-            <h4 className="text-xl font-semibold text-slate-200">
+            <h4 className="text-xl font-semibold text-gray-800 dark:text-slate-200">
               {education.degree}
             </h4>
-            <div className="inline-flex items-center gap-2 bg-slate-800/50 px-4 py-2 rounded-full border border-slate-700/50">
-              <span className="text-sm font-medium text-slate-300">Grade:</span>
+            <div className="inline-flex items-center gap-2 bg-white/50 dark:bg-slate-800/50 px-4 py-2 rounded-full border border-gray-200/50 dark:border-slate-700/50">
+              <span className="text-sm font-medium text-gray-700 dark:text-slate-300">
+                Grade:
+              </span>
               <span
                 className={`text-sm font-bold bg-gradient-to-r ${education.color} bg-clip-text text-transparent`}
               >
@@ -215,7 +221,7 @@ const EducationCard = ({ education, isActive }) => {
           </div>
 
           {/* Description */}
-          <p className="text-slate-400 leading-relaxed">
+          <p className="text-gray-600 dark:text-slate-400 leading-relaxed">
             {education.description}
           </p>
         </div>
@@ -224,16 +230,18 @@ const EducationCard = ({ education, isActive }) => {
         <div className="space-y-6">
           {/* Achievements */}
           <div>
-            <h5 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">
+            <h5 className="text-lg font-semibold text-gray-800 dark:text-slate-200 mb-3 flex items-center gap-2">
               <span>🏆</span> Key Achievements
             </h5>
             <ul className="space-y-2">
               {education.achievements.map((achievement, index) => (
                 <li
                   key={index}
-                  className="flex items-start gap-3 text-slate-400"
+                  className="flex items-start gap-3 text-gray-600 dark:text-slate-400"
                 >
-                  <span className="text-green-400 mt-1">✓</span>
+                  <span className="text-green-500 dark:text-green-400 mt-1">
+                    ✓
+                  </span>
                   <span className="text-sm">{achievement}</span>
                 </li>
               ))}
@@ -242,7 +250,7 @@ const EducationCard = ({ education, isActive }) => {
 
           {/* Skills */}
           <div>
-            <h5 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">
+            <h5 className="text-lg font-semibold text-gray-800 dark:text-slate-200 mb-3 flex items-center gap-2">
               <span>⚡</span> Skills Acquired
             </h5>
             <div className="flex flex-wrap gap-2">
@@ -265,10 +273,12 @@ const EducationCard = ({ education, isActive }) => {
 // Stats Card Component
 const StatCard = ({ icon, value, label }) => {
   return (
-    <div className="bg-slate-800/70 backdrop-blur-sm rounded-2xl p-6 text-center border border-slate-700/50 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+    <div className="bg-white/80 dark:bg-slate-800/70 backdrop-blur-sm rounded-2xl p-6 text-center border border-gray-200/50 dark:border-slate-700/50 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
       <div className="text-3xl mb-2">{icon}</div>
-      <div className="text-2xl font-bold text-white mb-1">{value}</div>
-      <div className="text-sm text-slate-400">{label}</div>
+      <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
+        {value}
+      </div>
+      <div className="text-sm text-gray-600 dark:text-slate-400">{label}</div>
     </div>
   );
 };
