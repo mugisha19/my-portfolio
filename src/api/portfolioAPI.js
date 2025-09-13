@@ -8,7 +8,7 @@ export async function fetchProjects() {
       category: "web",
       technologies: ["React", "Tailwind", "Framer Motion"],
       status: "completed",
-      liveUrl: "https://yourportfolio.com",
+      liveUrl: "https://habiyaremyeadolphe.netlify.app/",
       githubUrl: "https://github.com/mugisha19/my-portfolio",
       image: "/projects/project.png", // store in public/projects/
     },
