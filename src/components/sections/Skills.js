@@ -232,12 +232,12 @@ export default function Skills() {
         >
           <div className="bg-white/70 dark:bg-slate-900/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 dark:border-slate-700/30 max-w-4xl mx-auto">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-              Always Learning
+              Constantly Learning
             </h3>
             <p className="text-gray-600 dark:text-slate-400 mb-6">
-              Technology evolves rapidly, and so do I. I'm constantly exploring
-              new frameworks, tools, and best practices to stay current with
-              industry standards and deliver cutting-edge solutions.
+              Like technology, I change quickly. To stay up to date with
+              industry standards and provide innovative solutions, I'm always
+              investigating new frameworks, tools, and best practices.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               {[
