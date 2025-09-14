@@ -149,13 +149,15 @@ export default function About() {
             </div>
 
             {/* CTA */}
+            {/* CTA */}
             <motion.div
-              className="pt-4"
+              className="pt-4 flex flex-wrap gap-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
               viewport={{ once: true }}
             >
+              {/* Contact Button */}
               <motion.a
                 href="#contact"
                 className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
@@ -174,6 +176,30 @@ export default function About() {
                     strokeLinejoin="round"
                     strokeWidth={2}
                     d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </motion.a>
+
+              {/* Download CV Button */}
+              <motion.a
+                href="/HABIYAREMYE Adolphe Resume.pdf"
+                download
+                className="inline-flex items-center px-6 py-3 bg-gray-800 hover:bg-gray-900 text-white font-medium rounded-lg transition-all duration-300 shadow-lg hover:shadow-gray-700/40"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Download CV
+                <svg
+                  className="ml-2 w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"
                   />
                 </svg>
               </motion.a>

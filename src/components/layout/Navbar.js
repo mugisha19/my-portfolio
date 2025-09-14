@@ -234,7 +234,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes slideInRight {
           from {
             opacity: 0;
