@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  FaGithub,
-  FaTwitter,
-  FaLinkedin,
-  FaInstagram,
-  FaEnvelope,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
 
 export default function Contact() {
