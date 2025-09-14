@@ -1,5 +1,13 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import {
+  FaGithub,
+  FaTwitter,
+  FaLinkedin,
+  FaInstagram,
+  FaEnvelope,
+} from "react-icons/fa";
+import { FaX } from "react-icons/fa6";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -8,6 +16,29 @@ export default function Contact() {
     subject: "",
     message: "",
   });
+  const socialLinks = {
+    github: {
+      url: "https://github.com/mugisha19",
+      icon: <FaGithub size={20} />,
+    },
+    x: {
+      url: "https://x.com/habiya_adolphe",
+      icon: <FaX size={20} />,
+    },
+    linkedin: {
+      url: "https://www.linkedin.com/in/habiyaremye-adolphe-1968792aa/",
+      icon: <FaLinkedin size={20} />,
+    },
+    instagram: {
+      url: "https://www.instagram.com/smurkk.durkio/",
+      icon: <FaInstagram size={20} />,
+    },
+    gmail: {
+      url: "https://mail.google.com/mail/u/0/#inbox?compose=new",
+      icon: <FaEnvelope size={20} />,
+    },
+  };
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeField, setActiveField] = useState("");
 
@@ -354,7 +385,7 @@ export default function Contact() {
                   Follow me
                 </h4>
                 <div className="flex gap-4">
-                  {["GitHub", "Twitter"].map((platform, index) => (
+                  {/* {["GitHub", "Twitter"].map((platform, index) => (
                     <motion.a
                       key={platform}
                       href="#"
@@ -369,6 +400,23 @@ export default function Contact() {
                       <span className="text-sm font-medium">
                         {platform.charAt(0)}
                       </span>
+                    </motion.a>
+                  ))} */}
+                  {Object.keys(socialLinks).map((platform, index) => (
+                    <motion.a
+                      key={platform}
+                      href={socialLinks[platform].url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 bg-gray-300 dark:bg-slate-700 text-gray-700 dark:text-slate-300 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: 0.1 * index }}
+                      viewport={{ once: true }}
+                    >
+                      {socialLinks[platform].icon}
                     </motion.a>
                   ))}
                 </div>
