@@ -5,69 +5,56 @@ export default function Certifications() {
   const certifications = [
     {
       id: 1,
-      title: "React - The Complete Guide",
+      title: "Ultimate Guide to FastAPI and Backend Development",
       issuer: "Udemy",
       date: "2024",
-      icon: "⚛️",
-      color: "from-cyan-500 to-blue-600",
-      skills: ["React", "Redux", "Next.js", "React Router"],
+      icon: "⚡",
+      color: "from-emerald-500 to-teal-600",
+      skills: [
+        "FastAPI",
+        "Python",
+        "REST APIs",
+        "Backend Development",
+        "PostgreSQL",
+        "Authentication",
+      ],
       description:
-        "Comprehensive course covering React fundamentals, hooks, context API, Redux, and Next.js for building modern web applications.",
+        "Comprehensive course covering FastAPI framework for building high-performance backend APIs with Python, including database integration, authentication, deployment, and best practices for scalable backend architecture.",
     },
     {
       id: 2,
-      title: "JavaScript Algorithms & Data Structures",
-      issuer: "freeCodeCamp",
-      date: "2023",
-      icon: "🏅",
-      color: "from-yellow-500 to-orange-500",
-      skills: ["JavaScript", "ES6+", "Algorithms", "Data Structures"],
+      title: "Networking Essentials",
+      issuer: "Cisco Networking Academy",
+      date: "2024",
+      icon: "🌐",
+      color: "from-blue-500 to-cyan-600",
+      skills: [
+        "Computer Networking",
+        "IPv4/IPv6",
+        "LAN Configuration",
+        "Wireless Networking",
+        "Network Security",
+        "Cisco IOS",
+      ],
       description:
-        "Mastered core JavaScript concepts including ES6+ syntax, object-oriented programming, functional programming, and algorithmic problem solving.",
+        "Completed Cisco Networking Academy's Networking Essentials course, covering network communication, Ethernet technologies, IP addressing, DHCP configuration, wireless networking, and basic network security with Cisco devices.",
     },
     {
       id: 3,
-      title: "Responsive Web Design",
-      issuer: "freeCodeCamp",
-      date: "2023",
-      icon: "🎨",
-      color: "from-pink-500 to-rose-500",
-      skills: ["HTML5", "CSS3", "Flexbox", "CSS Grid", "Accessibility"],
-      description:
-        "Built responsive websites using modern CSS techniques including Flexbox, Grid, media queries, and accessibility best practices.",
-    },
-    {
-      id: 4,
-      title: "Python for Data Science & Machine Learning",
-      issuer: "Udemy",
+      title: "Introduction to Network Operations",
+      issuer: "Internet Society",
       date: "2024",
-      icon: "🐍",
-      color: "from-green-500 to-emerald-600",
-      skills: ["Python", "NumPy", "Pandas", "Scikit-learn"],
+      icon: "🔗",
+      color: "from-violet-500 to-purple-600",
+      skills: [
+        "Network Operations",
+        "Internet Infrastructure",
+        "Network Management",
+        "Internet Standards",
+        "Network Security",
+      ],
       description:
-        "Learned Python for data analysis, visualization, and machine learning fundamentals including supervised and unsupervised learning algorithms.",
-    },
-    {
-      id: 5,
-      title: "Git & GitHub Masterclass",
-      issuer: "Udemy",
-      date: "2023",
-      icon: "📋",
-      color: "from-gray-600 to-gray-800",
-      skills: ["Git", "GitHub", "Version Control", "CI/CD"],
-      description:
-        "Mastered Git version control including branching strategies, merge conflict resolution, pull requests, and collaborative workflows.",
-    },
-    {
-      id: 6,
-      title: "Java Programming Masterclass",
-      issuer: "Udemy",
-      date: "2024",
-      icon: "☕",
-      color: "from-red-500 to-orange-600",
-      skills: ["Java", "OOP", "Spring Boot", "REST APIs"],
-      description:
-        "Comprehensive Java course covering object-oriented programming, collections, generics, Spring Boot, and building RESTful web services.",
+        "Completed an introductory course on network operations focusing on how internet infrastructure works, network management practices, and the role of global internet standards in keeping the internet open, secure, and connected.",
     },
   ];
 
@@ -76,7 +63,7 @@ export default function Certifications() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.2,
       },
     },
   };
@@ -98,7 +85,7 @@ export default function Certifications() {
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute top-20 right-20 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"
+          className="absolute top-20 right-20 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -123,7 +110,7 @@ export default function Certifications() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-6xl mx-auto">
         {/* Section Header */}
         <motion.div
           className="text-center mb-16"
@@ -155,7 +142,7 @@ export default function Certifications() {
           </motion.h2>
 
           <motion.div
-            className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-500 dark:from-blue-500 dark:to-purple-400 rounded-full mx-auto mb-4"
+            className="w-20 h-1 bg-gradient-to-r from-blue-600 to-emerald-500 dark:from-blue-500 dark:to-emerald-400 rounded-full mx-auto mb-4"
             initial={{ width: 0 }}
             whileInView={{ width: "5rem" }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -170,14 +157,13 @@ export default function Certifications() {
             viewport={{ once: true }}
           >
             Continuous learning is at the core of my development journey. Here
-            are some of the certifications and courses I've completed to sharpen
-            my skills.
+            are the certifications I've earned to sharpen my skills.
           </motion.p>
         </motion.div>
 
         {/* Certifications Grid */}
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid md:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -186,7 +172,7 @@ export default function Certifications() {
           {certifications.map((cert) => (
             <motion.div
               key={cert.id}
-              className="group relative bg-white/80 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-200/50 dark:border-slate-700/30 hover:border-gray-300 dark:hover:border-slate-600/50 transition-all duration-500 hover:shadow-xl"
+              className="group relative bg-white/80 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-200/50 dark:border-slate-700/30 hover:border-gray-300 dark:hover:border-slate-600/50 transition-all duration-500 hover:shadow-xl flex flex-col"
               variants={cardVariants}
               whileHover={{ y: -5, scale: 1.02 }}
             >
@@ -195,19 +181,21 @@ export default function Certifications() {
                 className={`h-1.5 bg-gradient-to-r ${cert.color} w-full`}
               ></div>
 
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 {/* Header */}
                 <div className="flex items-start gap-4 mb-4">
-                  <div
+                  <motion.div
                     className={`text-3xl p-3 bg-gradient-to-br ${cert.color} rounded-xl shadow-lg flex-shrink-0`}
+                    whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
                   >
                     <span className="filter drop-shadow-sm">{cert.icon}</span>
-                  </div>
+                  </motion.div>
                   <div className="flex-1 min-w-0">
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 leading-tight">
                       {cert.title}
                     </h3>
-                    <div className="flex items-center gap-2 mt-1">
+                    <div className="flex items-center gap-2 mt-1.5">
                       <span className="text-sm font-medium text-blue-600 dark:text-blue-400">
                         {cert.issuer}
                       </span>
@@ -222,20 +210,25 @@ export default function Certifications() {
                 </div>
 
                 {/* Description */}
-                <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed mb-4">
+                <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed mb-5 flex-1">
                   {cert.description}
                 </p>
 
                 {/* Skills Tags */}
-                <div className="flex flex-wrap gap-2">
-                  {cert.skills.map((skill, index) => (
-                    <span
-                      key={index}
-                      className="px-2.5 py-1 bg-gray-100/80 dark:bg-slate-700/50 text-gray-700 dark:text-slate-300 text-xs font-medium rounded-full border border-gray-200/50 dark:border-slate-600/30 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                <div>
+                  <h4 className="text-xs font-semibold text-gray-500 dark:text-slate-500 mb-2 uppercase tracking-wider">
+                    Skills Covered
+                  </h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {cert.skills.map((skill, index) => (
+                      <span
+                        key={index}
+                        className="px-2.5 py-1 bg-gray-100/80 dark:bg-slate-700/50 text-gray-700 dark:text-slate-300 text-xs font-medium rounded-full border border-gray-200/50 dark:border-slate-600/30 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
@@ -261,7 +254,7 @@ export default function Certifications() {
               </h3>
             </div>
             <p className="text-gray-600 dark:text-slate-400 leading-relaxed">
-              I'm currently exploring advanced topics in{" "}
+              I'm currently expanding my skills in{" "}
               <span className="text-blue-600 dark:text-blue-400 font-medium">
                 Cloud Architecture
               </span>
@@ -273,7 +266,7 @@ export default function Certifications() {
               <span className="text-blue-600 dark:text-blue-400 font-medium">
                 Mobile Development
               </span>
-              . The tech landscape never stops evolving, and neither do I.
+              . More certifications coming soon!
             </p>
           </div>
         </motion.div>

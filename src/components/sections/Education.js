@@ -167,8 +167,7 @@ const Education = () => {
         </div>
 
         {/* Quick Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-          <StatCard icon="🎓" value="B.Sc." label="Computer Science" />
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-16">
           <StatCard icon="⭐" value="16/20" label="Current Grade" />
           <StatCard icon="🏆" value="3+" label="Key Projects" />
           <StatCard icon="📖" value="20+" label="Courses Completed" />
