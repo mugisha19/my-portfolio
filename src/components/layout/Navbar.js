@@ -16,18 +16,17 @@ export default function Navbar() {
         "about",
         "skills",
         "projects",
+        "certifications",
         "education",
         "experiences",
         "contact",
       ];
-      let currentSection = "hero"; // Default to hero
+      let currentSection = "hero";
 
-      // Find the section that's currently in view
       for (let i = sections.length - 1; i >= 0; i--) {
         const element = document.getElementById(sections[i]);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // Check if the section is in the upper part of the viewport
           if (rect.top <= 150) {
             currentSection = sections[i];
             break;
@@ -38,7 +37,6 @@ export default function Navbar() {
       setActiveSection(currentSection);
     };
 
-    // Initial call to set the correct section on page load
     handleScroll();
 
     window.addEventListener("scroll", handleScroll);
@@ -50,6 +48,7 @@ export default function Navbar() {
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
+    { id: "certifications", label: "Certs" },
     { id: "education", label: "Education" },
     { id: "experiences", label: "Experience" },
     { id: "contact", label: "Contact" },
@@ -63,6 +62,8 @@ export default function Navbar() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const currentYear = new Date().getFullYear();
 
   return (
     <>
@@ -210,7 +211,11 @@ export default function Navbar() {
                         : "none",
                     }}
                   >
-                    <span className="font-medium">{item.label}</span>
+                    <span className="font-medium">
+                      {item.id === "certifications"
+                        ? "Certifications"
+                        : item.label}
+                    </span>
                   </button>
                 ))}
               </div>
@@ -220,7 +225,7 @@ export default function Navbar() {
             <div className="p-6 border-t border-gray-200/30 dark:border-slate-700/30">
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-600 dark:text-slate-400">
-                  © 2024 Adolphe H.
+                  © {currentYear} Adolphe H.
                 </span>
                 <div className="flex space-x-3">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />

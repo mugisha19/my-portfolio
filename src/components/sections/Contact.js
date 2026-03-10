@@ -28,12 +28,13 @@ export default function Contact() {
       icon: <FaInstagram size={20} />,
     },
     gmail: {
-      url: "https://mail.google.com/mail/u/0/#inbox?compose=new",
+      url: "mailto:habiyaadolphe19@gmail.com",
       icon: <FaEnvelope size={20} />,
     },
   };
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
   const [activeField, setActiveField] = useState("");
 
   const handleInputChange = (e) => {
@@ -46,13 +47,30 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus(null);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          "form-name": "contact",
+          ...formData,
+        }).toString(),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+    }
 
     setIsSubmitting(false);
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    alert("Message sent successfully!");
+    setTimeout(() => setSubmitStatus(null), 5000);
   };
 
   const contactMethods = [
@@ -96,7 +114,7 @@ export default function Contact() {
       label: "Phone",
       value: "+250 786 108 587",
       link: "tel:+250786108587",
-      description: "Mon-Fri from 8am to 22pm",
+      description: "Mon-Fri from 8am to 10pm",
     },
     {
       icon: (
@@ -131,7 +149,7 @@ export default function Contact() {
         </svg>
       ),
       label: "LinkedIn",
-      value: "linkedin.com/in/Habiyaremye Adolphe",
+      value: "Habiyaremye Adolphe",
       link: "https://www.linkedin.com/in/habiyaremye-adolphe-1968792aa/",
       description: "Let's connect professionally",
     },
@@ -143,16 +161,11 @@ export default function Contact() {
       className="py-24 px-6 bg-gray-200 dark:bg-slate-950 text-gray-900 dark:text-white relative overflow-hidden"
     >
       {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-[0.05]">
+      <div className="absolute inset-0 opacity-[0.03]">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23${
-              window.matchMedia &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches
-                ? "ffffff"
-                : "000000"
-            }' fill-opacity='1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23888888' fill-opacity='1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}
         ></div>
       </div>
@@ -203,7 +216,27 @@ export default function Contact() {
                 Send a Message
               </h3>
 
+              {/* Hidden form for Netlify to detect */}
+              <form
+                name="contact"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                hidden
+              >
+                <input type="text" name="name" />
+                <input type="email" name="email" />
+                <input type="text" name="subject" />
+                <textarea name="message"></textarea>
+              </form>
+
               <form onSubmit={handleSubmit} className="space-y-6">
+                <input type="hidden" name="form-name" value="contact" />
+                <p className="hidden">
+                  <label>
+                    Don't fill this out: <input name="bot-field" />
+                  </label>
+                </p>
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="relative">
                     <input
@@ -278,6 +311,20 @@ export default function Contact() {
                   />
                 </div>
 
+                {/* Status Message */}
+                {submitStatus === "success" && (
+                  <div className="flex items-center gap-2 p-3 bg-green-100 dark:bg-green-900/30 border border-green-300 dark:border-green-700 rounded-lg text-green-700 dark:text-green-400 text-sm">
+                    <span>✅</span> Message sent successfully! I'll get back to
+                    you soon.
+                  </div>
+                )}
+                {submitStatus === "error" && (
+                  <div className="flex items-center gap-2 p-3 bg-red-100 dark:bg-red-900/30 border border-red-300 dark:border-red-700 rounded-lg text-red-700 dark:text-red-400 text-sm">
+                    <span>❌</span> Something went wrong. Please try emailing me
+                    directly.
+                  </div>
+                )}
+
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
@@ -334,6 +381,14 @@ export default function Contact() {
                     {method.link ? (
                       <a
                         href={method.link}
+                        target={
+                          method.link.startsWith("http") ? "_blank" : undefined
+                        }
+                        rel={
+                          method.link.startsWith("http")
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
                         className="flex items-start gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-gray-100 dark:hover:bg-slate-800/50 border border-transparent hover:border-gray-200 dark:hover:border-slate-700/50"
                       >
                         <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -379,23 +434,6 @@ export default function Contact() {
                   Follow me
                 </h4>
                 <div className="flex gap-4">
-                  {/* {["GitHub", "Twitter"].map((platform, index) => (
-                    <motion.a
-                      key={platform}
-                      href="#"
-                      className="w-10 h-10 bg-gray-300 dark:bg-slate-700 text-gray-700 dark:text-slate-300 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.3, delay: 0.1 * index }}
-                      viewport={{ once: true }}
-                    >
-                      <span className="text-sm font-medium">
-                        {platform.charAt(0)}
-                      </span>
-                    </motion.a>
-                  ))} */}
                   {Object.keys(socialLinks).map((platform, index) => (
                     <motion.a
                       key={platform}
@@ -409,6 +447,7 @@ export default function Contact() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.3, delay: 0.1 * index }}
                       viewport={{ once: true }}
+                      aria-label={platform}
                     >
                       {socialLinks[platform].icon}
                     </motion.a>

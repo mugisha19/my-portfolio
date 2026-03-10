@@ -4,7 +4,6 @@ const Education = () => {
   const [activeCard, setActiveCard] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
-  // Mock education data - replace with your actual data
   const educationData = [
     {
       id: 1,
@@ -13,8 +12,12 @@ const Education = () => {
       duration: "2023 - Current",
       grade: "16",
       description:
-        "Specialized in Software Engineering and Artificial Intelligence. Completed advanced coursework in algorithms, data structures, and Big data.",
-      achievements: [],
+        "Specializing in Software Engineering and Artificial Intelligence. Completing advanced coursework in algorithms, data structures, big data, and database design.",
+      achievements: [
+        "Specialized in Software Engineering and AI",
+        "Completed advanced coursework in algorithms and data structures",
+        "Built multiple full-stack projects as part of coursework",
+      ],
       skills: [
         "Python",
         "Java",
@@ -120,51 +123,55 @@ const Education = () => {
           </div>
 
           {/* Navigation Arrows */}
-          <button
-            onClick={prevCard}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group border border-gray-200/50 dark:border-slate-700/50"
-          >
-            <svg
-              className="w-6 h-6 text-gray-600 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
+          {educationData.length > 1 && (
+            <>
+              <button
+                onClick={prevCard}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group border border-gray-200/50 dark:border-slate-700/50"
+              >
+                <svg
+                  className="w-6 h-6 text-gray-600 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
 
-          <button
-            onClick={nextCard}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group border border-gray-200/50 dark:border-slate-700/50"
-          >
-            <svg
-              className="w-6 h-6 text-gray-600 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
+              <button
+                onClick={nextCard}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group border border-gray-200/50 dark:border-slate-700/50"
+              >
+                <svg
+                  className="w-6 h-6 text-gray-600 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </>
+          )}
         </div>
 
         {/* Quick Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-          <StatCard icon="🎓" value="3+" label="Degrees & Certifications" />
-          <StatCard icon="⭐" value="3.8" label="Average GPA" />
-          <StatCard icon="🏆" value="10+" label="Academic Achievements" />
-          <StatCard icon="📖" value="40+" label="Courses Completed" />
+          <StatCard icon="🎓" value="B.Sc." label="Computer Science" />
+          <StatCard icon="⭐" value="16/20" label="Current Grade" />
+          <StatCard icon="🏆" value="3+" label="Key Projects" />
+          <StatCard icon="📖" value="20+" label="Courses Completed" />
         </div>
       </div>
     </section>
@@ -215,7 +222,7 @@ const EducationCard = ({ education, isActive }) => {
               <span
                 className={`text-sm font-bold bg-gradient-to-r ${education.color} bg-clip-text text-transparent`}
               >
-                {education.grade}
+                {education.grade}/20
               </span>
             </div>
           </div>
@@ -229,24 +236,26 @@ const EducationCard = ({ education, isActive }) => {
         {/* Right Column - Details */}
         <div className="space-y-6">
           {/* Achievements */}
-          <div>
-            <h5 className="text-lg font-semibold text-gray-800 dark:text-slate-200 mb-3 flex items-center gap-2">
-              <span>🏆</span> Key Achievements
-            </h5>
-            <ul className="space-y-2">
-              {education.achievements.map((achievement, index) => (
-                <li
-                  key={index}
-                  className="flex items-start gap-3 text-gray-600 dark:text-slate-400"
-                >
-                  <span className="text-green-500 dark:text-green-400 mt-1">
-                    ✓
-                  </span>
-                  <span className="text-sm">{achievement}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {education.achievements.length > 0 && (
+            <div>
+              <h5 className="text-lg font-semibold text-gray-800 dark:text-slate-200 mb-3 flex items-center gap-2">
+                <span>🏆</span> Key Highlights
+              </h5>
+              <ul className="space-y-2">
+                {education.achievements.map((achievement, index) => (
+                  <li
+                    key={index}
+                    className="flex items-start gap-3 text-gray-600 dark:text-slate-400"
+                  >
+                    <span className="text-green-500 dark:text-green-400 mt-1">
+                      ✓
+                    </span>
+                    <span className="text-sm">{achievement}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Skills */}
           <div>
@@ -282,33 +291,5 @@ const StatCard = ({ icon, value, label }) => {
     </div>
   );
 };
-
-// Add custom CSS for animations
-const style = document.createElement("style");
-style.textContent = `
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .animate-fadeIn {
-    animation: fadeIn 0.6s ease-out;
-  }
-  
-  .perspective-1000 {
-    perspective: 1000px;
-  }
-  
-  .shadow-3xl {
-    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
-  }
-`;
-document.head.appendChild(style);
 
 export default Education;

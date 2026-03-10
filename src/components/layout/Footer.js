@@ -1,27 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 
 function Footer() {
-  const [email, setEmail] = useState("");
-  const [isSubscribed, setIsSubscribed] = useState(false);
-
-  const handleNewsletterSubmit = (e) => {
-    e.preventDefault();
-    if (email) {
-      setIsSubscribed(true);
-      setEmail("");
-      setTimeout(() => setIsSubscribed(false), 3000);
-    }
-  };
-
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
-    { name: "Experience", href: "#experience" },
+    { name: "Certifications", href: "#certifications" },
     { name: "Education", href: "#education" },
-    { name: "Testimonials", href: "#testimonials" },
+    { name: "Experience", href: "#experiences" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -49,7 +37,7 @@ function Footer() {
       href: "https://x.com/habiya_adolphe",
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
         </svg>
       ),
     },
@@ -59,23 +47,19 @@ function Footer() {
     "Web Development",
     "Mobile Apps",
     "UI/UX Design",
-    "Consulting",
+    "Backend APIs",
+    "Database Design",
     "Code Review",
-    "Mentoring",
   ];
 
   return (
     <footer className="bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-white relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-[0.03]">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23${
-              document.documentElement.classList.contains("dark")
-                ? "ffffff"
-                : "000000"
-            }' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='m0 40l40-40h-40z'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23888888' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='m0 40l40-40h-40z'/%3E%3C/g%3E%3C/svg%3E")`,
           }}
         ></div>
       </div>
@@ -150,76 +134,71 @@ function Footer() {
               </div>
             </div>
 
-            {/* Newsletter */}
+            {/* Contact Info */}
             <div>
               <h4 className="text-gray-900 dark:text-white font-semibold mb-4">
-                Stay Updated
+                Contact
               </h4>
-              <p className="text-gray-600 dark:text-slate-400 text-sm mb-4">
-                Get notified about new projects and blog posts.
-              </p>
-
-              <form onSubmit={handleNewsletterSubmit} className="space-y-3">
-                <div className="relative">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email"
-                    className="w-full px-4 py-2 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-slate-500 focus:outline-none focus:border-blue-500 dark:focus:border-blue-500 focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-500 text-sm transition-all duration-300"
-                    required
-                  />
-                </div>
-                <button
-                  type="submit"
-                  disabled={isSubscribed}
-                  className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+              <div className="space-y-4">
+                <a
+                  href="mailto:habiyaadolphe19@gmail.com"
+                  className="flex items-center gap-2 text-gray-600 dark:text-slate-400 text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
                 >
-                  {isSubscribed ? "Subscribed!" : "Subscribe"}
-                </button>
-              </form>
-
-              {/* Contact Info */}
-              <div className="mt-6 pt-6 border-t border-gray-300 dark:border-slate-800">
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-gray-600 dark:text-slate-400 text-sm">
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      />
-                    </svg>
-                    habiyaadolphe19@gmail.com
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-600 dark:text-slate-400 text-sm">
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
-                    Kigali, Rwanda
-                  </div>
+                  <svg
+                    className="w-4 h-4 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                  habiyaadolphe19@gmail.com
+                </a>
+                <a
+                  href="tel:+250786108587"
+                  className="flex items-center gap-2 text-gray-600 dark:text-slate-400 text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+                >
+                  <svg
+                    className="w-4 h-4 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                  +250 786 108 587
+                </a>
+                <div className="flex items-center gap-2 text-gray-600 dark:text-slate-400 text-sm">
+                  <svg
+                    className="w-4 h-4 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                  Kigali, Rwanda
                 </div>
               </div>
             </div>

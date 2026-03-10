@@ -8,8 +8,6 @@ export default function Hero() {
       id="hero"
       className="relative h-screen flex flex-col md:flex-row items-center justify-center gap-8 bg-gray-50 dark:bg-slate-900 text-gray-900 dark:text-white px-8 sm:px-16 md:px-24 lg:px-56 overflow-hidden"
     >
-      {/* Debug info - remove this in production */}
-
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Subtle geometric shapes */}

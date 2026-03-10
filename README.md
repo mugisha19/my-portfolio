@@ -1,70 +1,148 @@
-# Getting Started with Create React App
+# 🌐 Adolphe HABIYAREMYE — Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive personal portfolio website built with **React**, **Tailwind CSS**, and **Framer Motion**. Features dark/light theme, smooth animations, and a clean professional design.
 
-## Available Scripts
+🔗 **Live Demo:** [habiyaremyeadolphe.netlify.app](https://habiyaremyeadolphe.netlify.app/)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Responsive Design** — Optimized for all screen sizes (mobile, tablet, desktop)
+- **Dark/Light Theme** — Toggle with localStorage persistence and system preference detection
+- **Smooth Animations** — Powered by Framer Motion with scroll-triggered entrances
+- **Dynamic Navigation** — Scroll spy highlights active section, smooth scrolling
+- **Contact Form** — Integrated with Netlify Forms for real email delivery
+- **Project Showcase** — Filterable project gallery with category tags
+- **Certifications** — Dedicated section for courses and professional certifications
+- **Downloadable CV** — Resume available for direct download
+- **SEO Optimized** — Open Graph meta tags, proper title/description, semantic HTML
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Technology | Purpose |
+|---|---|
+| [React 19](https://react.dev/) | UI Framework |
+| [Tailwind CSS 3](https://tailwindcss.com/) | Utility-first CSS |
+| [Framer Motion](https://www.framer.com/motion/) | Animations |
+| [React Query](https://tanstack.com/query) | Data fetching & caching |
+| [React Icons](https://react-icons.github.io/react-icons/) | Icon library |
+| [Inter Font](https://fonts.google.com/specimen/Inter) | Typography |
+| [Netlify](https://www.netlify.com/) | Hosting & Forms |
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📁 Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+my-portfolio/
+├── public/
+│   ├── projects/              # Project screenshot images
+│   ├── HABIYAREMYE Adolphe Resume.pdf
+│   └── index.html             # SEO meta tags, OG tags, fonts
+├── src/
+│   ├── api/
+│   │   └── portfolioAPI.js    # Project data
+│   ├── assets/
+│   │   └── profile.jpg        # Profile photo
+│   ├── components/
+│   │   ├── animations/        # FadeInSection, ParticleBackground, TypewriterText
+│   │   ├── layout/            # Navbar, Footer
+│   │   ├── sections/          # Hero, About, Skills, Projects, Certifications,
+│   │   │                      # Education, Experience, Contact
+│   │   ├── ui/                # Button, Card, Modal
+│   │   └── ThemeToggle.js
+│   ├── hooks/
+│   │   ├── useTheme.js        # Dark/light mode hook
+│   │   ├── useIntersectionObserver.js
+│   │   └── useScrollSpy.js
+│   ├── App.js
+│   ├── index.js
+│   ├── index.css              # Global styles, animations, scrollbar
+│   └── tailwind.css           # Tailwind directives
+├── netlify.toml               # Netlify build config
+├── tailwind.config.js
+└── package.json
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 📝 Sections
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| # | Section | Description |
+|---|---|---|
+| 1 | **Hero** | Full-screen intro with profile image, gradient text, CTA buttons |
+| 2 | **About** | Bio, focus areas, stats, tech stack, download CV |
+| 3 | **Skills** | Frontend, Backend, Database & Tools with animated progress bars |
+| 4 | **Projects** | 9 projects with category filtering, live/GitHub links |
+| 5 | **Certifications** | Professional courses and certifications |
+| 6 | **Education** | Academic background with achievements and skills |
+| 7 | **Experience** | Professional work history |
+| 8 | **Contact** | Netlify-powered form, email, phone, location, social links |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🚀 Getting Started
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Prerequisites
 
-## Learn More
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- npm or yarn
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+# Clone the repository
+git clone https://github.com/mugisha19/my-portfolio.git
 
-### Code Splitting
+# Navigate to the directory
+cd my-portfolio
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Install dependencies
+npm install
 
-### Analyzing the Bundle Size
+# Start development server
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The app will open at [http://localhost:3000](http://localhost:3000).
 
-### Making a Progressive Web App
+### Build for Production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm run build
+```
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🌍 Deployment
 
-### Deployment
+This project is configured for **Netlify** deployment:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Push your code to GitHub
+2. Connect the repository to Netlify
+3. Build command: `npm run build`
+4. Publish directory: `build`
 
-### `npm run build` fails to minify
+The `netlify.toml` file handles this configuration automatically.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 📬 Contact
+
+- **Email:** [habiyaadolphe19@gmail.com](mailto:habiyaadolphe19@gmail.com)
+- **LinkedIn:** [Habiyaremye Adolphe](https://www.linkedin.com/in/habiyaremye-adolphe-1968792aa/)
+- **GitHub:** [@mugisha19](https://github.com/mugisha19)
+- **X/Twitter:** [@habiya_adolphe](https://x.com/habiya_adolphe)
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+> Built with ❤️ by Adolphe HABIYAREMYE
